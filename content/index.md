@@ -15,8 +15,7 @@ You can find an example of querying contents and rendering them in a [catch-all 
 
 ## Integrate Vue Component
 
-::comments
-::
+
 
 
 ::alert{color="green"}

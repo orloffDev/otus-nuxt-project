@@ -1,3 +1,14 @@
+<script setup>
+  const route = useRoute()
+  const routeName = route.params.slug?.[0] || 'index'
+
+  const { data } = await useAsyncData(`comments-${route.path}`, () => {
+    return queryCollection('comments').where("stem", "=", `comments/${routeName}`).first()
+  })
+
+</script>
 <template>
-  my first component
+  <pre>
+    {{data.meta}}
+  </pre>
 </template>
