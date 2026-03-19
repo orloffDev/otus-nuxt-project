@@ -1,0 +1,3 @@
+# News
+
+[Back home](/)
