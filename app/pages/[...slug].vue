@@ -1,13 +1,21 @@
 <script setup lang="ts">
 const route = useRoute()
 
+const routeName = route.params.slug?.[0] || 'index'
+
 const { data: page } = await useAsyncData('page-' + route.path, () => {
   return queryCollection('content').path(route.path).first()
 })
 
+//
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
+
+useHead({
+  title: routeName
+})
+
 </script>
 
 <template>
